@@ -1,15 +1,22 @@
-var arr1 = [1,2,3];
+$(function(){
+	backgroundAnimation('#big-head',);
+})
 
-var arr2  = arr1.map(a=>a*2);
-var p1 = new Promise();
+function backgroundAnimation(id){
+	var container = document.querySelector(id);
+	if(container!=null){
+		var containerWidth = container.clientWidth;
+		var skills = ['Javascript', 'CSS', 'HTML', 'Reactjs', 'Angular', 'jQuery', 'PHP', 'Drupal', 'Wordpress', 'Git', 'Asp', 'Photoshop'];
+		var skillsCount = skills.length;
+		
+		setInterval(function(){
+			var text = skills[Math.floor(Math.random()*skillsCount)];
+			var dom = document.createElement('span')
+			var domText = document.createTextNode(text);
+			dom.className = "text";
+			dom.appendChild(domText);
+			container.appendChild(dom);
 
-function a(){
-	console.log('a');
-}
-
-function b(){
-	console.log('b');
-}
-function c(){
-	console.log('c');
+		},500);
+	}
 }
